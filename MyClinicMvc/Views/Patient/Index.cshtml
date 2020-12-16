@@ -1,0 +1,36 @@
+@model List<MyClinicProject.Models.Patient>
+
+<h2>List of Patients</h2>
+<div>
+    <div>Number of Patients: @Model.Count</div>
+    
+    
+    <table id="patients-table" class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">BirthDate</th>
+            <th scope="col">Gender</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        @for (int i=0; i< Model.Count; i++) {
+            <tr>
+                <td>@Model[i].FirstName</td>
+                <td>@Model[i].LastName</td>
+                <td>@Model[i].BirthDate</td>
+                <td>@Model[i].Gender</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@Model[i].Id">View Patient</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <div>
+        <a asp-action="Form" class="btn btn-info">New Patient</a>
+    </div>
+</div>

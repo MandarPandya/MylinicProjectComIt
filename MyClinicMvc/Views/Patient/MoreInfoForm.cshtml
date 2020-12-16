@@ -1,0 +1,78 @@
+@model MoreInfoViewModel;
+
+@{
+    string pageTitle = "Update More Information";
+
+    string action = "UpdateMoreInfo";
+    
+    if (ViewBag.IsEditing == true) {
+
+        pageTitle = "Update Information";
+        action = "UpdateMoreInfo";
+
+    }
+}
+
+<div>
+    
+    <h2>@pageTitle</h2>
+    <hr/>
+    <div>
+        
+        <form asp-action="@action">
+            <input type="hidden" asp-for="Id"/>
+            <div class="form-group">
+                <label for="BG">Blood Group</label>
+                <input type="text" class="form-control" id="BG"  asp-for="BloodGroup">
+                <span class="text-danger" asp-validation-for="BloodGroup"></span>
+            </div>
+            <div class="form-group">
+                <label for="Al">Allergies</label>
+                <input type="text" class="form-control" id="Al" asp-for="Allergies">
+                <span class="text-danger" asp-validation-for="Allergies"></span>
+            </div>
+            <div class="form-group">
+                <label for="Ht">Height</label>
+                <input type="text" class="form-control" id="Ht" asp-for="Height">
+                <span class="text-danger" asp-validation-for="Height"></span>
+            </div>
+            <div class="form-group">
+                <label for="Wt">Weight</label>
+                <input type="text" class="form-control" id="Wt" asp-for="Weight">
+                <span class="text-danger" asp-validation-for="Weight"></span>
+            </div>
+            <div class="form-group">
+                <label for="LTM">Long Term Medication</label>
+                <input type="text" class="form-control" id="LTM" asp-for="LongTermMedication">
+                <span class="text-danger" asp-validation-for="LongTermMedication"></span>
+            </div>
+            <br/>
+            <div><h2>Contact Information</h2></div>
+            <div class="form-group">
+                <label for="Ad">Address</label>
+                <input type="text" class="form-control" id="Ad" asp-for="Address">
+                <span class="text-danger" asp-validation-for="Address"></span>
+            </div>
+            <div class="form-group">
+                <label for="Ct">Contact</label>
+                <input type="text" class="form-control" id="Ct" asp-for="Contact">
+                <span class="text-danger" asp-validation-for="Contact"></span>
+            </div>
+            <div class="form-group">
+                <label for="EC">Emergency Contact</label>
+                <input type="text" class="form-control" id="EC" asp-for="EmergencyContact">
+                <span class="text-danger" asp-validation-for="EmergencyContact"></span>
+            </div>
+            <div class="form-group">
+                <label for="Em">Email</label>
+                <input type="text" class="form-control" id="Em" asp-for="Email">
+                <span class="text-danger" asp-validation-for="Email"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+<br/>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
